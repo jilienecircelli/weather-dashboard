@@ -53,8 +53,7 @@ $("button").on("click", function() {
 
         // Log the resulting object
         console.log(responseTwo);
-        console.log(responseTwo.list[4].dt_txt);
-        console.log(responseTwo.list[4].main.temp);
+
 
         // Converts the temp to Kelvin with the below formula & then sets it to 2 decimal points
         var tempOneF = (responseTwo.list[4].main.temp - 273.15) * 1.80 + 32;
@@ -91,15 +90,6 @@ $("button").on("click", function() {
         $("#day-5").html("<h6>" + responseTwo.list[36].dt_txt + "</h6>")
         $("#day-5").append("<p>" + "Temp: " + tempFive + "</p>")
         $("#day-5").append("<p>" + "Humidity: " + responseTwo.list[36].main.humidity + "</p>")
-
-
-
-        // var card = $("<div class='card' style='width: 12rem'>");
-        // var cardDeck = $(".card-deck");
-        // var dayOne = $("<h6>" + responseTwo.list[4].dt_txt + "</h6>")
-        // cardDeck.append(card);
-        // card.append(dayOne)
-
 
     });
 
