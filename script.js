@@ -54,6 +54,9 @@ $("button").on("click", function() {
         // Log the resulting object
         console.log(responseTwo);
 
+        // Add the icon based on the forecasted weather
+
+        var icon = responseTwo.list
 
         // Converts the temp to Kelvin with the below formula & then sets it to 2 decimal points
         var tempOneF = (responseTwo.list[4].main.temp - 273.15) * 1.80 + 32;
@@ -71,23 +74,32 @@ $("button").on("click", function() {
         var tempFiveF = (responseTwo.list[36].main.temp - 273.15) * 1.80 + 32;
         var tempFive = tempFiveF.toFixed(2);
 
-        $("#day-1").html("<h6>" + responseTwo.list[4].dt_txt + "</h6>")
+        // attempting to use substr() to only show the date and remove the hours
+        var dayone = responseTwo.list[4].dt_txt;
+        var daytwo = responseTwo.list[12].dt_txt;
+        var daythree = responseTwo.list[20].dt_txt;
+        var dayfour = responseTwo.list[28].dt_txt;
+        var dayfive = responseTwo.list[36].dt_txt;
+
+
+        $("#day-1").html("<h6>" + dayone.substr(0, 10) + "</h6>")
+        $("#day-1").append()
         $("#day-1").append("<p>" + "Temp: " + tempOne + "</p>")
         $("#day-1").append("<p>" + "Humidity: " + responseTwo.list[4].main.humidity + "</p>")
 
-        $("#day-2").html("<h6>" + responseTwo.list[12].dt_txt + "</h6>")
+        $("#day-2").html("<h6>" + daytwo.substr(0, 10) + "</h6>")
         $("#day-2").append("<p>" + "Temp: " + tempTwo + "</p>")
         $("#day-2").append("<p>" + "Humidity: " + responseTwo.list[12].main.humidity + "</p>")
 
-        $("#day-3").html("<h6>" + responseTwo.list[20].dt_txt + "</h6>")
+        $("#day-3").html("<h6>" + daythree.substr(0, 10) + "</h6>")
         $("#day-3").append("<p>" + "Temp: " + tempThree + "</p>")
         $("#day-3").append("<p>" + "Humidity: " + responseTwo.list[20].main.humidity + "</p>")
 
-        $("#day-4").html("<h6>" + responseTwo.list[28].dt_txt + "</h6>")
+        $("#day-4").html("<h6>" + dayfour.substr(0, 10) + "</h6>")
         $("#day-4").append("<p>" + "Temp: " + tempFour + "</p>")
         $("#day-4").append("<p>" + "Humidity: " + responseTwo.list[28].main.humidity + "</p>")
 
-        $("#day-5").html("<h6>" + responseTwo.list[36].dt_txt + "</h6>")
+        $("#day-5").html("<h6>" + dayfive.substr(0, 10) + "</h6>")
         $("#day-5").append("<p>" + "Temp: " + tempFive + "</p>")
         $("#day-5").append("<p>" + "Humidity: " + responseTwo.list[36].main.humidity + "</p>")
 
