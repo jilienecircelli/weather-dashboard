@@ -1,4 +1,5 @@
 var apiKey = "f2d37efa2c8efd655bc063ea0ad09062";
+var arr = [];
 
 var city = "";
 $("button").on("click", function() {
@@ -8,6 +9,30 @@ $("button").on("click", function() {
     city = letsGo
 
     var dataURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+
+    arr.push(letsGo);
+
+    var searchDiv = document.querySelector(".search-data");
+    var searchList = document.querySelector("#search-list");
+
+    function renderCities() {
+        searchList.textContent = arr.length;
+        for (var i = 0; i < arr.length; i++) {
+            var results = arr[i];
+            var li = document.createElement("li");
+            li.textContent = results;
+            $(searchList.append(results));
+        }
+    }
+    renderCities()
+
+
+
+    // // var str = JSON.stringify(city);
+    // // var obj = JSON.parse(str)
+    // $(".search-data").append(city + "<br>");
+    // localStorage.setItem("City", arr);
+    // localStorage.getItem("City")
 
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
